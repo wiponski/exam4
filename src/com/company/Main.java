@@ -11,7 +11,7 @@ import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.toList;
 
 public class Main {
-    static int  newIndex = 0;
+     static  int  newIndex = 0;
     public static void main(String[] args) {
     run();
     }
@@ -37,6 +37,14 @@ public class Main {
         for (Cat c:sortByLevel1){
          newIndex++;
          c.setIndex(newIndex);
+        }
+        sortByLevel1.forEach(System.out::println);
+        System.out.println("--------------------Выбор действий---------");
+        cat.getAction(sortByLevel1);
+        newIndex=0;
+        for (Cat c:sortByLevel1){
+            newIndex++;
+            c.setIndex(newIndex);
         }
         sortByLevel1.forEach(System.out::println);
 

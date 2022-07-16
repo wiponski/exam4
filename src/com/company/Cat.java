@@ -78,16 +78,56 @@ public class Cat {
     }
 
     public void  getAction(List<Cat> cats){
+        System.out.println("\n Выберите действие: \n"+
+                "1. Кормить кота \n"+
+                "2. Играть с котом \n"+
+                "3. Лечить кота \n"+
+                "4. Завести нового питомца;" +
+                "5. Выход \n");
+        Integer choose = new Scanner(System.in).nextInt();
+        switch (choose){
+            case 1:
+                feedCat(cats);
+                return;
+            case 2:
+                playCat(cats);
+                return;
+            case 3:
+                treatCat(cats);
+                return;
+            case 4:
+                addCats(cats);
+                return;
+            case 5:
+                break;
+            default:
+                System.out.println("not correct choose....");
+                return;
+        }
 
     }
-    public void  feedCat(List<Cat> cats){
+    public void   feedCat(List<Cat> cats){
+        System.out.println("Кормить кота ");
+        index=chooseCat()-1;
+        System.out.println("Вы выбрали: "+cats.get(index).name+", его возраст: "+cats.get(index).age);
 
     }
-    public void  playCat(){
-
+    public void  playCat(List<Cat> cats){
+        System.out.println("Играть с котом ");
+        index=chooseCat()-1;
+        System.out.println("Вы выбрали: "+cats.get(index).name+", его возраст: "+cats.get(index).age);
     }
-    public void  treatCat(){
+    public void  treatCat(List<Cat> cats){
+        System.out.println("Лечить кота ");
+        index=chooseCat()-1;
+        System.out.println("Вы выбрали: "+cats.get(index).name+", его возраст: "+cats.get(index).age);
+    }
 
+    public Integer  chooseCat(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите номер кота: ");
+        int number=sc.nextInt();
+       return number;
     }
 
 
