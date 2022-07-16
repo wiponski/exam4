@@ -23,9 +23,11 @@ public class Main {
         Cat cat = new Cat();
 
         cat.makeCat(cats);
+        System.out.println("№ |  Имя    |возраст|здоровье|настроение|сытность|средний ур|");
         cats.forEach(System.out::println);
 
         System.out.println("---------------------sort by Level-----------");
+        System.out.println("№ |  Имя    |возраст|здоровье|настроение|сытность|средний ур|");
         var sortByLevel= cats.stream()
                 .sorted(comparingInt(Cat::getAverageLevel).reversed());
         sortByLevel.forEach(System.out::println);
@@ -39,16 +41,20 @@ public class Main {
          newIndex++;
          c.setIndex(newIndex);
         }
+        System.out.println("№ |  Имя    |возраст|здоровье|настроение|сытность|средний ур|");
         sortByLevel1.forEach(System.out::println);
         System.out.println("--------------------Выбор действий---------");
-
-       getAction(sortByLevel1);
-        newIndex=0;
-        for (Cat c:sortByLevel1){
-            newIndex++;
-            c.setIndex(newIndex);
+        while (true) {
+            getAction(sortByLevel1);
+            newIndex=0;
+            for (Cat c:sortByLevel1){
+                newIndex++;
+                c.setIndex(newIndex);
+            }
+            System.out.println("№ |  Имя    |возраст|здоровье|настроение|сытность|средний ур|");
+            sortByLevel1.forEach(System.out::println);
         }
-        sortByLevel1.forEach(System.out::println);
+
 
 
 
@@ -82,6 +88,7 @@ public class Main {
                 addCats(cats);
                 return;
             case 5:
+
                 break;
             default:
                 System.out.println("not correct choose....");

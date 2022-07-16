@@ -112,7 +112,7 @@ public class Cat {
 
 //        System.out.println("\n-----------------------------------------------\n"+
 //        "# |\tИмя\t|\tВозраст\t|\tЗдоровье\t|\tНастроение\t|\tСытость\t|\n");
-       return  String.format("%s |\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|",getIndex(),name,age,satietyLevel,moodLevel,healthLevel,getAverageLevel() );
+       return  String.format("%s |\t%s\t|\t%s\t|\t%s \t|\t%s  \t|\t%s \t |\t%s\t\t|",getIndex(),name,age,satietyLevel,moodLevel,healthLevel,getAverageLevel() );
     }
 
     public Integer getIndex() {
