@@ -14,7 +14,7 @@ public class Cat {
     private Integer satietyLevel;
     private Integer moodLevel;
     private Integer healthLevel;
-    private Integer index;
+    private int index;
     private static Random random= new Random();
     //private static  List<String> names = List.of(Name.values().toString());
     private static  List<String> names = List.of("Peach", "Poppy", "Jasper");
@@ -77,7 +77,18 @@ public class Cat {
       return cats;
     }
 
+    public void  getAction(List<Cat> cats){
 
+    }
+    public void  feedCat(List<Cat> cats){
+
+    }
+    public void  playCat(){
+
+    }
+    public void  treatCat(){
+
+    }
 
 
 
