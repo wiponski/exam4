@@ -3,6 +3,10 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
+
+import static java.util.Comparator.comparingInt;
+import static java.util.stream.Collectors.toList;
 
 public class Cat {
     private String name;
@@ -10,10 +14,25 @@ public class Cat {
     private Integer satietyLevel;
     private Integer moodLevel;
     private Integer healthLevel;
+    private Integer index;
     private static Random random= new Random();
+    //private static  List<String> names = List.of(Name.values().toString());
+    private static  List<String> names = List.of("Peach", "Poppy", "Jasper");
+    public Cat() {
+
+    }
+
 
     public Cat(String name, Integer age, Integer satietyLevel, Integer moodLevel, Integer healthLevel) {
-        //this.name = Name.POPPY.name();
+        this.name = names.get(random.nextInt(names.size()));
+        this.name = name;
+        this.age = age;
+        this.satietyLevel = satietyLevel;
+        this.moodLevel = moodLevel;
+        this.healthLevel = healthLevel;
+    }
+    public Cat(Integer index, String name, Integer age, Integer satietyLevel, Integer moodLevel, Integer healthLevel) {
+        this.index=index;
         this.name = name;
         this.age = age;
         this.satietyLevel = satietyLevel;
@@ -21,11 +40,15 @@ public class Cat {
         this.healthLevel = healthLevel;
     }
 
-//    public static List<Cat> makeCat(){
-//      List<Cat> cats = new ArrayList<>();
-//     cats.add(Name.POPPY,13,14,14,14);
-//     return cats;
-//    }
+
+
+    public static List<Cat> makeCat(List<Cat> cats){
+        int index =0;
+        for(int i = 0 ; i<5;i++){
+            index = index+1;
+            cats.add(new Cat(index, names.get(random.nextInt(names.size())), Cat.rndAge(),Cat.rndLevel(),Cat.rndLevel(),Cat.rndLevel()));
+        } return cats;
+    }
 
     public static Integer rndLevel(){
         int rnd=1;
@@ -42,6 +65,16 @@ public class Cat {
     public Integer getAverageLevel(){
         int m= (satietyLevel+moodLevel+healthLevel)/3;
         return m;
+    }
+
+   public static List<Cat> addCats (List<Cat> cats){
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Введите имя: ");
+       String name=sc.nextLine();
+       System.out.print("Введите возраст: ");
+       int age=sc.nextInt();
+       cats.add( new Cat( name, age,Cat.rndLevel(),Cat.rndLevel(),Cat.rndLevel()));
+      return cats;
     }
 
 
@@ -91,18 +124,17 @@ public class Cat {
 
     @Override
     public String toString() {
+
 //        System.out.println("\n-----------------------------------------------\n"+
 //        "# |\tИмя\t|\tВозраст\t|\tЗдоровье\t|\tНастроение\t|\tСытость\t|\n");
-       return  String.format("# |\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|",name,age,satietyLevel,moodLevel,healthLevel,getAverageLevel() );
+       return  String.format("%s |\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|\t%s\t|",getIndex(),name,age,satietyLevel,moodLevel,healthLevel,getAverageLevel() );
     }
-//    @Override
-//    public String toString() {
-//        return "Cat{" +
-//                "name='" + name + '\'' +
-//                ", age=" + age +
-//                ", satietyLevel=" + satietyLevel +
-//                ", moodLevel=" + moodLevel +
-//                ", healthLevel=" + healthLevel +
-//                '}';
-//    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public  void setIndex(Integer index) {
+        this.index = index;
+    }
 }

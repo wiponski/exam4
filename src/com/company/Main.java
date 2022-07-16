@@ -15,16 +15,37 @@ public class Main {
 
     public static void run() {
         List<Cat> cats= new ArrayList<>();
-        cats.add(new Cat(Name.POPPY.toString(),Cat.rndAge(),Cat.rndLevel(),Cat.rndLevel(),Cat.rndLevel()));
-        cats.add(new Cat(Name.PEACH.toString(),Cat.rndAge(),Cat.rndLevel(),Cat.rndLevel(),Cat.rndLevel()));
-        cats.add(new Cat(Name.JASPER.toString(),Cat.rndAge(),Cat.rndLevel(),Cat.rndLevel(),Cat.rndLevel()));
 
-        cats.forEach(System.out::println);
+        Cat cat = new Cat();
+
+        cat.makeCat(cats);
         System.out.println("---------------------sort by Level-----------");
+
         var sortByLevel= cats.stream()
                 .sorted(comparingInt(Cat::getAverageLevel).reversed())
+               // .map(e->e.getIndex()+9)
                 .collect(toList());
-        sortByLevel.forEach(System.out::println);
+//        for (int i =0; i<sortByLevel.size();i++ ) {
+//            int index1=9;
+//            index1=index1+1;
+//            cat.setIndex(index1);
+//        }
+
+      sortByLevel.forEach(System.out::println);
+        System.out.println("---------------------add cat----------");
+
+        cat.addCats(cats);
+        var sortByLevel1= cats.stream()
+                .sorted(comparingInt(Cat::getAverageLevel).reversed())
+                .collect(toList());
+
+
+        sortByLevel1.forEach(System.out::println);
+
+
+
+
 
     }
+
 }
